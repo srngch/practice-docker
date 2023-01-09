@@ -14,11 +14,11 @@ build: ## Build containers
 	$(DOCKER_COMPOSE) build
 
 .PHONY: up
-up: # Create and start containers
+up: ## Create and start containers
 	$(DOCKER_COMPOSE) up -d
 
 .PHONY: down
-down: # Stop and remove containers, networks
+down: ## Stop and remove containers, networks
 	$(DOCKER_COMPOSE) down
 
 .PHONE: start
@@ -34,7 +34,7 @@ stop: ## Stop running containers
 	$(DOCKER_COMPOSE) stop
 
 .PHONY: rm
-rm: # Removes stopped service containers
+rm: ## Removes stopped service containers
 	$(DOCKER_COMPOSE) rm
 
 .PHONY: show
@@ -51,5 +51,5 @@ clean: ## Stop and remove running containers, networks, images, and volumes
 	$(DOCKER_COMPOSE) down --rmi all --volumes --remove-orphans
 
 .PHONY: re
-re: clean
+re: clean ## clean & build
 	make build
