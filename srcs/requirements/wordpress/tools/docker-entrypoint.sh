@@ -33,13 +33,23 @@ wp core install \
 	--admin_password=$WP_ADMIN_PASSWORD \
 	--admin_email=$WP_ADMIN_EMAIL
 
-echo "[ Creating user ]"
-wp user create \
+wp user get \
+	$WP_USER_USERNAME \
 	--path=/var/www/html/wordpress \
 	--allow-root \
-	$WP_USER_USERNAME \
-	$WP_USER_EMAIL \
-	--role=author \
-	--user_pass=$WP_USER_PASSWORD
+	> /dev/null 2> /dev/null
+
+if [ $? -eq 0 ]; then
+	echo "[ User '$WP_USER_USERNAME' already exist ]"
+else
+	echo "[ Creating user ]"
+	wp user create \
+		--path=/var/www/html/wordpress \
+		--allow-root \
+		$WP_USER_USERNAME \
+		$WP_USER_EMAIL \
+		--role=author \
+		--user_pass=$WP_USER_PASSWORD
+fi
 
 /usr/sbin/php-fpm7.3 --nodaemonize --allow-to-run-as-root
