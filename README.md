@@ -43,3 +43,20 @@ $ sudo apt-get update
 $ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 $ sudo chmod 666 /var/run/docker.sock
 ```
+
+# Makefile to use docker-compose
+
+```bash
+$ make build
+```
+
+- `help`: Show help
+- `build`: Build containers
+- `up`: Create and start containers
+- `down`: Stop and remove containers, networks
+- `start`: Start services
+- `stop`: Stop running containers
+- `rm`: Removes stopped service containers
+- `show`: Show containers, images, and logs
+- `clean`: Stop and remove running containers, networks, images, and volumes
+- `re`: clean & build
