@@ -2,7 +2,7 @@ FROM debian:buster-slim
 
 LABEL maintainer="sarchoi <sarchoi@student.42seoul.kr>"
 
-EXPOSE 80 443
+EXPOSE 443
 
 RUN apt-get update \
 	&& apt-get install -y \
