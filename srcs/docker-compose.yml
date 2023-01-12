@@ -67,7 +67,7 @@ volumes:
     name: inception-db-data
     driver_opts:
       type: none
-      device: /home/sarchoi/data
+      device: /home/sarchoi/data/db
       o: bind
 
   wp-data:
@@ -75,5 +75,5 @@ volumes:
     name: inception-wp-data
     driver_opts:
       type: none
-      device: /home/sarchoi/data
+      device: /home/sarchoi/data/wp
       o: bind
