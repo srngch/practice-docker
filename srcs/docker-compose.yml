@@ -62,5 +62,18 @@ networks:
   inception-net:
 
 volumes:
-  db-data: {}
-  wp-data: {}
+  db-data:
+    driver: local
+    name: inception-db-data
+    driver_opts:
+      type: none
+      device: /home/sarchoi/db-data
+      o: bind
+
+  wp-data:
+    driver: local
+    name: inception-wp-data
+    driver_opts:
+      type: none
+      device: /home/sarchoi/wp-data
+      o: bind
